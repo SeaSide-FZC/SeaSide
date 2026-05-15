@@ -777,55 +777,86 @@ footer {
 }
 
 /* Mobile Navbar */
+/* MOBILE NAVBAR */
 @media (max-width: 768px) {
+
     .nav-content {
         height: 80px;
-        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 
+    /* Smaller logo */
     .logo-box {
-        width: 145px;
-        height: 60px;
+        width: 150px;
+        height: 55px;
     }
 
     .logo {
         height: 55px;
-        max-width: 145px;
+        max-width: 150px;
     }
 
+    /* Hamburger button */
     .menu-toggle {
         display: block;
-        z-index: 1001;
+        background: var(--green);
+        color: white;
+        border: none;
+        font-size: 1.5rem;
+        padding: 6px 14px;
+        border-radius: 10px;
+        cursor: pointer;
+        z-index: 1002;
     }
 
+    /* Hide nav by default */
     nav {
         position: absolute;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.97);
-        border-radius: 14px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
-        padding: 15px;
+        top: 85px;
+        left: 5%;
+        width: 90%;
+        background: rgba(255, 255, 255, 0.98);
+        border-radius: 18px;
+        box-shadow: 0 18px 35px rgba(0,0,0,0.18);
+
         display: none;
         flex-direction: column;
-        gap: 10px;
+        align-items: center;
+
+        padding: 20px;
+        gap: 12px;
     }
 
+    /* Show menu when active */
     nav.active {
         display: flex;
     }
 
     nav a {
         color: var(--navy) !important;
-        margin-left: 0;
-        padding: 10px;
-        text-align: center;
         width: 100%;
+        text-align: center;
+        padding: 12px;
+        margin: 0;
+        font-size: 1rem;
     }
 
     nav .btn {
         width: 100%;
-        text-align: center;
     }
+
+    /* Hero text smaller */
+    .hero-title {
+        font-size: 2.2rem;
+        padding: 0 20px;
+    }
+
+    .hero-subtitle {
+        padding: 0 20px;
+    }
+}
+.menu-toggle {
+    display: none;
 }
