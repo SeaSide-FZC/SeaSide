@@ -165,7 +165,7 @@ header.scrolled .btn {
     height: 100vh;
     background:
         linear-gradient(135deg, rgba(31, 60, 136, 0.88), rgba(47, 102, 193, 0.88)),
-        url("../images/pexels-tomfisk-3856433.jpg");
+        url("pexels-tomfisk-3856433.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
