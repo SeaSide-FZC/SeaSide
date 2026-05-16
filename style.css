@@ -120,7 +120,10 @@ header.scrolled {
 .logo-dark {
     opacity: 0;
 }
-
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
 header.scrolled .logo-light {
     opacity: 0;
 }
