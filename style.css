@@ -81,9 +81,10 @@ header {
     background: transparent;
 }
 
-header.scrolled {
+header.scrolled,
+header.menu-open {
     background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
 .nav-content {
@@ -94,6 +95,11 @@ header.scrolled {
 }
 
 /* Logo Switch */
+.logo-link {
+    display: block;
+    text-decoration: none;
+}
+
 .logo-box {
     position: relative;
     width: 210px;
@@ -120,15 +126,14 @@ header.scrolled {
 .logo-dark {
     opacity: 0;
 }
-.logo-link {
-    display: block;
-    text-decoration: none;
-}
-header.scrolled .logo-light {
+
+header.scrolled .logo-light,
+header.menu-open .logo-light {
     opacity: 0;
 }
 
-header.scrolled .logo-dark {
+header.scrolled .logo-dark,
+header.menu-open .logo-dark {
     opacity: 1;
 }
 
@@ -150,20 +155,17 @@ nav a:hover {
     color: var(--green);
 }
 
-header.scrolled nav a {
+header.scrolled nav a,
+header.menu-open nav a {
     color: var(--navy);
 }
 
-header.scrolled nav a:hover {
+header.scrolled nav a:hover,
+header.menu-open nav a:hover {
     color: var(--blue);
 }
 
-header.scrolled .btn {
-    background: var(--green);
-    color: white !important;
-}
-
-/* Hamburger Button - hidden on desktop */
+/* Hamburger Button */
 .menu-toggle {
     display: none;
     background: var(--green);
@@ -400,6 +402,22 @@ section h2::after {
     border-radius: 14px;
 }
 
+.fade {
+    animation: fadeSlide 0.7s ease;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0.3;
+        transform: scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .slide-caption {
     position: absolute;
     bottom: 25px;
@@ -424,6 +442,7 @@ section h2::after {
     font-weight: bold;
     font-size: 20px;
     border-radius: 50%;
+    border: none;
     background-color: rgba(31, 60, 136, 0.75);
     user-select: none;
     transform: translateY(-50%);
@@ -707,7 +726,7 @@ footer {
     }
 }
 
-/* Mobile Navbar */
+/* Mobile */
 @media (max-width: 768px) {
     .nav-content {
         height: 80px;
@@ -723,7 +742,6 @@ footer {
     }
 
     .logo {
-        left: 0;
         height: 55px;
         max-width: 150px;
     }
@@ -741,9 +759,11 @@ footer {
         background: rgba(255, 255, 255, 0.98);
         border-radius: 18px;
         box-shadow: 0 18px 35px rgba(0, 0, 0, 0.18);
+
         display: none;
         flex-direction: column;
         align-items: center;
+
         padding: 20px;
         gap: 12px;
     }
@@ -761,24 +781,25 @@ footer {
         font-size: 1rem;
     }
 
-    nav .btn {
-        width: 100%;
+    nav a.btn {
+        color: white !important;
+        background: var(--green) !important;
     }
 
     .hero {
         padding-top: 120px;
     }
 
-   .hero-title {
-    font-size: 2.2rem;
-    padding: 0 16px;
-    max-width: 100%;
-}
+    .hero-title {
+        font-size: 2.2rem;
+        padding: 0 16px;
+        max-width: 100%;
+    }
 
-.hero-title::after {
-    width: 70%;
-    bottom: -16px;
-}
+    .hero-title::after {
+        width: 70%;
+        bottom: -16px;
+    }
 
     .hero-subtitle {
         padding: 0 20px;
@@ -806,9 +827,10 @@ footer {
     .hero-title {
         font-size: 1.9rem;
     }
+
     .hero-title::after {
-    width: 65%;
-}
+        width: 65%;
+    }
 
     .hero-subtitle {
         font-size: 0.95rem;
@@ -820,42 +842,5 @@ footer {
 
     .contact-form {
         padding: 24px;
-    }
-}
-@media (max-width: 768px) {
-    header nav {
-        background: rgba(255, 255, 255, 0.98) !important;
-    }
-
-    header nav a {
-        color: var(--navy) !important;
-    }
-
-    header nav a:hover {
-        color: var(--blue) !important;
-    }
-
-    header nav a.btn {
-        color: white !important;
-        background: var(--green) !important;
-    }
-}
-/* Fix mobile dropdown text color */
-@media (max-width: 768px) {
-    header nav {
-        background: rgba(255, 255, 255, 0.98) !important;
-    }
-
-    header nav a {
-        color: var(--navy) !important;
-    }
-
-    header nav a:hover {
-        color: var(--blue) !important;
-    }
-
-    header nav a.btn {
-        color: white !important;
-        background: var(--green) !important;
     }
 }
