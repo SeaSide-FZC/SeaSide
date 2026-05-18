@@ -38,6 +38,25 @@ function showSlide(n) {
   if (n > slides.length) { slideIndex = 1 }
   if (n < 1) { slideIndex = slides.length }
 
+  // Auto slideshow for Products section
+let productAutoSlide = setInterval(() => {
+  changeSlide(1);
+}, 3500);
+
+const slideshow = document.querySelector(".slideshow-container");
+
+if (slideshow) {
+  slideshow.addEventListener("mouseenter", () => {
+    clearInterval(productAutoSlide);
+  });
+
+  slideshow.addEventListener("mouseleave", () => {
+    productAutoSlide = setInterval(() => {
+      changeSlide(1);
+    }, 3500);
+  });
+}
+
   // hide all slides
   for (let i = 0; i < slides.length; i++) {
     slides[i].style.display = "none";
@@ -98,4 +117,20 @@ if (menuToggle && navMenu) {
       navMenu.classList.remove("active");
     });
   });
+
+  .fade {
+    animation: fadeSlide 0.7s ease;
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0.3;
+        transform: scale(1.02);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 }
