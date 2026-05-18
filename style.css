@@ -211,15 +211,14 @@ header.scrolled .btn {
 
 .hero-title span {
     color: white;
-    position: relative;
 }
 
-.hero-title span::after {
+.hero-title::after {
     content: "";
     position: absolute;
     left: 50%;
-    bottom: -14px;
-    width: 80%;
+    bottom: -16px;
+    width: clamp(170px, 55vw, 460px);
     height: 4px;
     background: var(--green);
     border-radius: 20px;
@@ -770,10 +769,16 @@ footer {
         padding-top: 120px;
     }
 
-    .hero-title {
-        font-size: 2.2rem;
-        padding: 0 20px;
-    }
+   .hero-title {
+    font-size: 2.2rem;
+    padding: 0 16px;
+    max-width: 100%;
+}
+
+.hero-title::after {
+    width: 70%;
+    bottom: -16px;
+}
 
     .hero-subtitle {
         padding: 0 20px;
@@ -801,6 +806,9 @@ footer {
     .hero-title {
         font-size: 1.9rem;
     }
+    .hero-title::after {
+    width: 65%;
+}
 
     .hero-subtitle {
         font-size: 0.95rem;
